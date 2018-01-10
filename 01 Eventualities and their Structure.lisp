@@ -12,6 +12,6 @@
   :comment
   "An eventuality is a state or event. The duration of an eventuality is
   the duration of its time span."
-  :properties (:hobbs eventuality)
+  :properties (:usc eventuality)
   ;; TODO: Does this make 'happensIn' a mandatory argument? It shouldn't be.
   :args ((arg::happensIn :isa temporal-interval)))

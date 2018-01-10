@@ -3,4 +3,4 @@
 
 (def-eci non-negative-integer (number)
   :comment "A non-negative integer."
-  :properties (:hobbs nonNegInteger))
+  :properties (:usc nonNegInteger))

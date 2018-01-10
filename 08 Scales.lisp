@@ -6,4 +6,4 @@
 (def-eci scale (abstraction)
   :comment
   "A scale."
-  :properties (:hobbs scale))
+  :properties (:usc scale))

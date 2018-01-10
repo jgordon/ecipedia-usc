@@ -5,7 +5,7 @@
   :comment
   "Logical implication. If the antecedent is true, the consequent
   is true."
-  :properties (:hobbs if)
+  :properties (:usc if)
   :args ((arg::antecedent :isa formula)
          (arg::consequent :isa formula))
   :const ((or (not arg::antecedent)
@@ -16,7 +16,7 @@
   :comment
   "Bidirectional logical implication. The consequent is true if and only
   if the antecedent is true."
-  :properties (:hobbs iff)
+  :properties (:usc iff)
   :args ((arg::antecedent :isa formula)
          (arg::consequent :isa formula))
   :const (and (if arg::antecedent arg::consequent)

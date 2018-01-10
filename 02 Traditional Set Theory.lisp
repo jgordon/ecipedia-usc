@@ -3,7 +3,7 @@
 
 (def-eci member (relation)
   :comment ""
-  :properties (:hobbs member)
+  :properties (:usc member)
   :args ((arg::t :isa abstraction)
          (arg::s :isa abstraction))
   ;; Old draft definition:

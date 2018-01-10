@@ -19,7 +19,7 @@
   interval or instant that is not in the set. A temporal sequence is also
   a scale whose ordering relation is `before`. The duration of a temporal
   sequence is the sum of the durations of its members."
-  :properties (:hobbs tseq)
+  :properties (:usc tseq)
   ;; Old draft definition:
   ;;   :const ((all ((?t1 temporal-entity)
   ;;                 (?t2 temporal-entity))
@@ -37,25 +37,25 @@
   :comment
   "A temporal sequence is roughly periodic if the gaps between successive
   elements are all the same half order of magnitude."
-  :properties (:hobbs roughlyPeriodicTseq))
+  :properties (:usc roughlyPeriodicTseq))
 
 (def-eci periodic-temporal-sequence (roughly-periodic-temporal-sequence)
   :comment
   "A temporal sequence is periodic if that gaps between successive elements
   are all equal."
-  :properties (:hobbs periodicTseq))
+  :properties (:usc periodicTseq))
 
 (def-eci temporal-entity (time)
   :comment
   "A temporal entity is an instant or an interval."
-  :properties (:hobbs temporalEntity
+  :properties (:usc temporalEntity
                :owl time:TemporalEntity))
 
 ;; Note: Name 'time point' is already in use on ECIpedia, so we conform.
 (def-eci time-point (temporal-entity)
   :comment
   "A time point is an instant of time. Its duration is zero."
-  :properties (:hobbs instant
+  :properties (:usc instant
                :owl time:Instant))
 
 ;; Note: Name 'temporal region' is already in use on ECIpedia, so we
@@ -63,7 +63,7 @@
 (def-eci temporal-region (temporal-entity region)
   :comment
   "A temporal region is an interval of time."
-  :properties (:hobbs interval
+  :properties (:usc interval
                :owl time:Interval))
 
 (def-eci proper-temporal-region (temporal-region
@@ -71,7 +71,7 @@
   :comment
   "Proper temporal regions have distinct beginnings and ends. Positive
   infinite temporal regions are regarded as proper temporal regions."
-  :properties (:hobbs properInterval))
+  :properties (:usc properInterval))
 
 (def-eci positive-infinite-temporal-region
     (proper-temporal-region
@@ -79,7 +79,7 @@
   :comment
   "A positive infinite temporal region has no end, and it may or may not
   have a beginning."
-  :properties (:hobbs posInfInterval)
+  :properties (:usc posInfInterval)
   ;; Old draft definition:
   ;;   :const ((not (exists ((?t2 time-point)) (ends t2 t))))
   )
@@ -89,7 +89,7 @@
 (def-eci time-unit (temporal-region unit-type)
   :comment
   "A temporal region that constitutes a standard unit, e.g., a second."
-  :properties (:hobbs temporalUnit))
+  :properties (:usc temporalUnit))
 
 ;; Note: Since only eventualities that have positive infinite time spans
 ;; belong in this class, I don't have eventuality inherit from it, which
@@ -99,7 +99,7 @@
   :comment
   "Either a positive infinite temporal region or an eventuality whose time
   span is a positive infinite temporal region."
-  :properties (:hobbs posInfIntervalEv)
+  :properties (:usc posInfIntervalEv)
   ;; Old draft definition:
   ;;   :const ((exists ((?t positive-infinite-interval))
   ;;             (time-span-of ?t e)))
@@ -112,23 +112,23 @@
   "Either a proper temporal region or an eventuality whose time span is a
   proper temporal region. The beginning of a proper temporal region is
   before the instants inside, which are before the end."
-  :properties (:hobbs properIntervalEv))
+  :properties (:usc properIntervalEv))
 
 (def-eci time-scale (scale ground)
   :comment
   "A scale whose elements are temporal entities and whose ordering is
   `before`."
-  :properties (:hobbs timeScale))
+  :properties (:usc timeScale))
 
 (def-eci scale-ordered-by-duration (scale)
   :comment
   "A scale whose elements are temporal regions ordered by duration."
-  :properties (:hobbs scaleOrderedByDuration))
+  :properties (:usc scaleOrderedByDuration))
 
 (def-eci frequent (abstraction)
   :comment
   "A set of eventualities in the high region of a rate scale."
-  :properties (:hobbs frequent))
+  :properties (:usc frequent))
 
 
 ;;
@@ -139,7 +139,7 @@
   :comment
   "Time point t1 is the beginning of temporal abstraction t2. The beginning
   of an time point is itself."
-  :properties (:hobbs begins
+  :properties (:usc begins
                :owl time:hasBeginning)
   :args ((arg::t1 :isa time-point)
          (arg::t2 :isa temporal-abstraction))
@@ -163,7 +163,7 @@
   :comment
   "Time point t1 is the end of temporal abstraction t2. The end of a time
   point is itself."
-  :properties (:hobbs ends
+  :properties (:usc ends
                :owl time:hasEnd)
   :args ((arg::t1 :isa time-point)
          (arg::t2 :isa temporal-abstraction))
@@ -184,7 +184,7 @@
 (def-eci inside-time (nontemporal-relation)
   :comment
   "Time point t1 is inside temporal abstraction t2."
-  :properties (:hobbs insideTime
+  :properties (:usc insideTime
                :owl time:inside)
   :args ((arg::t1 :isa time-point)
          (arg::t2 :isa temporal-abstraction))
@@ -208,7 +208,7 @@
   :comment
   "t is the temporal region that begins at temporal entity t1 and ends at
   temporal entity t2."
-  :properties (:hobbs intervalBetween)
+  :properties (:usc intervalBetween)
   :args ((arg::t :isa temporal-region)
          (arg::t1 :isa temporal-entity)
          (arg::t2 :isa temporal-entity))
@@ -225,7 +225,7 @@
   :comment
   "If element t of the temporal sequence s is before all other
   elements of s, this is called the first element."
-  :properties (:hobbs first)
+  :properties (:usc first)
   :args ((arg::t :isa temporal-entity)
          (arg::s :isa temporal-sequence))
   ;; Old draft definition:
@@ -239,7 +239,7 @@
   :comment
   "If element t of the temporal sequence s is after all other
   elements of s, this is called the last element."
-  :properties (:hobbs last)
+  :properties (:usc last)
   :args ((arg::t :isa temporal-entity)
          (arg::s :isa temporal-sequence))
   ;; Old draft definition:
@@ -253,7 +253,7 @@
   :comment
   "Two elements of a temporal sequence are successive elements if
   there is no element between them."
-  :properties (:hobbs successiveElts)
+  :properties (:usc successiveElts)
   :args ((arg::t1 :isa temporal-entity)
          (arg::t2 :isa temporal-entity)
          (arg::s :isa temporal-sequence))
@@ -271,7 +271,7 @@
   :comment
   "The convex hull of a temporal sequence is the smallest temporal region
   spanning all the members of the temporal sequence."
-  :properties (:hobbs convexHull)
+  :properties (:usc convexHull)
   :args ((arg::t :isa temporal-region)
          (arg::s :isa temporal-sequence))
   ;; Old draft definition:
@@ -290,13 +290,13 @@
   :comment
   "Temporal properties are ones that say something about when an eventuality
   occurs."
-  :properties (:hobbs temporal))
+  :properties (:usc temporal))
 
 (def-eci at-time (temporal-relation at)
   :comment
   "Eventuality e is occurring (i.e., really exists or obtains) at time
   point t."
-  :properties (:hobbs atTime)
+  :properties (:usc atTime)
   :args ((arg::e :isa eventuality)
          (arg::t :isa time-point)))
 
@@ -304,7 +304,7 @@
   :comment
   "Eventuality e is occurring (i.e., really exists or obtains) at every
    time point inside temporal region t."
-  :properties (:hobbs during)
+  :properties (:usc during)
   :args ((arg::e :isa eventuality)
          (arg::t :isa proper-temporal-region))
   ;; Old draft definition:
@@ -318,7 +318,7 @@
   "The 'time span of' an eventuality encompasses all the instants and
   temporal regions for which it really exists or obtains. The time span
   may be an instant, a temporal region, or a temporal sequence."
-  :properties (:hobbs timeSpanOf)
+  :properties (:usc timeSpanOf)
   :args ((arg::t :isa time)
          (arg::e :isa eventuality))
   ;; Old draft definition:
@@ -352,7 +352,7 @@
   "We will say that an eventuality e happens in a temporal entity or
   sequence t if its time span is entirely included in the temporal entity
   or sequence."
-  :properties (:hobbs happensIn)
+  :properties (:usc happensIn)
   :args ((arg::e :isa eventuality)
          (arg::t :isa time))
   ;; Old draft definition:
@@ -371,7 +371,7 @@
   "t1 is before t2. The `before` relation is a partial ordering on the
   elements of a temporal sequence. The `before` relation is antireflexive,
   antisymmetric, and transitive."
-  :properties (:hobbs before
+  :properties (:usc before
                :owl time:before)
   :args (;(arg::e :isa eventuality)
          (arg::t1 :isa temporal-abstraction)
@@ -393,7 +393,7 @@
 (def-eci duration-of (temporal-relation)
   :comment
   "The duration of t is d units u."
-  :properties (:hobbs durationOf)
+  :properties (:usc durationOf)
   :args ((arg::d :isa non-negative-integer)
          (arg::t :isa temporal-abstraction)
          (arg::u :isa time-unit)))
@@ -401,13 +401,13 @@
 (def-eci nontemporal-relation (relation)
   :comment
   "A nontemporal relation is one that isn't temporal."
-  :properties (:hobbs nontemporal))
+  :properties (:usc nontemporal))
 
 (def-eci temporal-regions-meet (nontemporal-relation)
   :comment
   "Temporal region t1 meets temporal region t2. The end of one temporal
   region is the beginning of the other."
-  :properties (:hobbs intMeets)
+  :properties (:usc intMeets)
   :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
          (arg::t2 :isa proper-temporal-region-or-eventuality)))
 
@@ -415,7 +415,7 @@
   :comment
   "Temporal regions t1 and t2 overlap. The beginning of one temporal region
   is inside the other."
-  :properties (:hobbs intOverlaps)
+  :properties (:usc intOverlaps)
   :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
          (arg::t2 :isa proper-temporal-region-or-eventuality)))
 
@@ -423,21 +423,21 @@
   :comment
   "Temporal region t1 begins inside temporal region t2, and their ends are
   the same."
-  :properties (:hobbs intFinishes)
+  :properties (:usc intFinishes)
   :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
          (arg::t2 :isa proper-temporal-region-or-eventuality)))
 
 (def-eci temporal-region-during-temporal-region (nontemporal-relation)
   :comment
   "Temporal region t1 begins after and ends before temporal region t2."
-  :properties (:hobbs intDuring)
+  :properties (:usc intDuring)
   :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
          (arg::t2 :isa proper-temporal-region-or-eventuality)))
 
 (def-eci before-or-meets (nontemporal-relation)
   :comment
   "The end of t1 is before or equal to the beginning of t2."
-  :properties (:hobbs beforeOrMeets)
+  :properties (:usc beforeOrMeets)
   :args ((arg::t1 :isa temporal-entity)
          (arg::t2 :isa temporal-entity)))
 
@@ -447,7 +447,7 @@
   to temporal regions, but trivially every time point is of the same
   duration, namely, zero. This relation is reflexive, symmetric, and
   transitive."
-  :properties (:hobbs sameDuration)
+  :properties (:usc sameDuration)
   :args ((arg::t1 :isa temporal-entity)
          (arg::t2 :isa temporal-entity)))
 
@@ -455,7 +455,7 @@
   :comment
   "Temporal region t is the concatenation of the temporal regions in the
   set s."
-  :properties (:hobbs concatenation)
+  :properties (:usc concatenation)
   :args ((arg::t :isa temporal-region)
          (arg::s :isa set)))
 
@@ -463,7 +463,7 @@
   :comment
   "Temporal region t1 has shorter duration than temporal region t2. This
   relation is a partial ordering."
-  :properties (:hobbs shorterDuration)
+  :properties (:usc shorterDuration)
   :args ((arg::t1 :isa temporal-region)
          (arg::t2 :isa temporal-region)))
 
@@ -471,7 +471,7 @@
   :comment
   "d is the duration of the equal gaps in periodic temporal sequence s
   measured in units u."
-  :properties (:hobbs gapDuration)
+  :properties (:usc gapDuration)
   :args ((arg::d :isa non-negative-integer)
          (arg::s :isa periodic-temporal-sequence)
          (arg::u :isa time-unit)))
@@ -481,7 +481,7 @@
   "Eventualities in s occur n times in every element of t, if t is a set of
   temporal regions, or in every temporal region of duration t if t is a
   temporal unit."
-  :properties (:hobbs rate)
+  :properties (:usc rate)
   :args ((arg::n :isa number)
          (arg::s :isa set)
          ;; t is a set or temporal unit.
@@ -491,6 +491,6 @@
   :comment
   "s is a scale whose elements are the sets of eventualities in s0 and whose
   ordering is the rate of the sets."
-  :properties (:hobbs rateScale)
+  :properties (:usc rateScale)
   :args ((arg::s :isa scale)
          (arg::s0)))
