@@ -4,9 +4,11 @@
 (def-eci ground (abstraction)
   :comment
   "An entity whose components are sufficiently similar for it to be a
-  potential ground in an `at` relation.")
+  potential ground in an `at` relation."
+  :properties (:usc ground))
 
 
 (def-eci at (relation)
   :comment
-  "An entity x is at component y in composite entity s.")
+  "An entity x is at component y in composite entity s."
+  :properties (:usc at))
