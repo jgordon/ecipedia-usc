@@ -12,7 +12,7 @@
 (def-eci time (temporal-abstraction)
   :comment "A temporal sequence or entity.")
 
-(def-eci temporal-sequence (time)
+(def-eci temporal-sequence (time set)
   :comment
   "A temporal sequence is a set of non-overlapping temporal entities.
   Between any two distinct members of a temporal sequence, there is another
