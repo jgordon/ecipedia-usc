@@ -1,7 +1,7 @@
 ;; ECIpedia: Basics
 ;; Jerry Hobbs, Andrew Gordon, and Jonathan Gordon
 
-(def-eci if (logical-abstraction)
+(def-eci if (predicate)
   :comment
   "Logical implication. If the antecedent is true, the consequent
   is true."
@@ -12,7 +12,7 @@
               arg::consequent)))
 
 
-(def-eci iff (logical-abstraction)
+(def-eci iff (predicate)
   :comment
   "Bidirectional logical implication. The consequent is true if and only
   if the antecedent is true."
