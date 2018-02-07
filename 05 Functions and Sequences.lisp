@@ -8,14 +8,20 @@
 ;; Possibly this should be merged with the predicate ordered-pair-of, below,
 ;; which specifies the members of the pair. They are distinct in the axioms,
 ;; but that might not be the right treatment here.
-(def-eci ordered-pair (collection sequence)
-  :comment "An ordered pair of two elements."
+(def-eci ordered-pair (collection sequence composite-entity)
+  :comment
+  "An ordered pair of two elements. Ordered pairs are composite entities
+  where the components are the first and second elements, there are no
+  properties other than the whole being a pair, and the relations are the
+  `first` and `second` relations between the components and the whole."
   :properties (:usc pair0))
 
-(def-eci sequence (abstraction)
+(def-eci sequence (abstraction composite-entity)
   :comment
   "A sequence of length `n` is a function whose domain is the first `n`
-  positive integers."
+  positive integers. A sequence can be viewed as a composite entity whose
+  components are the elements of the sequence and whose relations are the
+  ordering relations in the sequence."
   :properties (:usc sequence))
 
 

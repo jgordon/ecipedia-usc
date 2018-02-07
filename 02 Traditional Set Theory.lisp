@@ -5,9 +5,11 @@
 ;; Abstractions
 ;;
 
-(def-eci set (collection)
+(def-eci set (collection composite-entity)
   :comment
-  "A set is a collection that is completely defined by its members."
+  "A set is a collection that is completely defined by its members. Sets
+  are composite entities whose components are members and whose only property
+  is being set."
   :properties (:usc set))
 
 (def-eci null (set)
