@@ -16,12 +16,13 @@
   `first` and `second` relations between the components and the whole."
   :properties (:usc pair0))
 
-(def-eci sequence (abstraction composite-entity)
+(def-eci sequence (abstraction composite-entity scale)
   :comment
   "A sequence of length `n` is a function whose domain is the first `n`
   positive integers. A sequence can be viewed as a composite entity whose
   components are the elements of the sequence and whose relations are the
-  ordering relations in the sequence."
+  ordering relations in the sequence. Thus a sequence is also a scale, whose
+  partial ordering is the `before-in-sequence` relation."
   :properties (:usc sequence))
 
 
