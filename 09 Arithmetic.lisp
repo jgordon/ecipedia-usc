@@ -20,7 +20,7 @@
   :comment "A positive integer."
   :properties (:usc posInteger))
 
-(def-eci non-negative-numeric-scale (scale)
+(def-eci non-negative-numeric-scale (vertical-scale)
   :comment
   "A scale whose elements are non-negative numbers, including 0, and whose
   partial ordering is `less-than`."
