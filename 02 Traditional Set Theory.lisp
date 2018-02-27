@@ -16,7 +16,7 @@
   :comment "The null set, which has no members."
   :properties (:usc null))
 
-(def-eci eventualities (set)
+(def-eci eventualities (set eventuality-or-eventualities)
   :comment "A set of eventualities."
   :properties (:usc eventualities))
 

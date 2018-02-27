@@ -11,7 +11,9 @@
 ;; in the Time axioms.
 (def-eci eventuality (temporal-abstraction
                       positive-infinite-interval-or-eventuality
-                      proper-interval-or-eventuality)
+                      proper-interval-or-eventuality
+                      eventuality-or-eventualities
+                      eventuality-or-agent)
   :comment
   "An eventuality is a state or event. Eventualities all have a predicate,
   an arity, and arguments. The duration of an eventuality is the duration
