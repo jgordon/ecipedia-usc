@@ -1,6 +1,10 @@
 ;; ECIpedia: Basics
 ;; Jerry Hobbs, Andrew Gordon, and Jonathan Gordon
 
+
+(in-package :eci)
+
+
 (def-eci if (predicate)
   :comment
   "Logical implication. If the antecedent is true, the consequent
@@ -21,4 +25,3 @@
          (@consequent :isa formula))
   :const (and (if @antecedent @consequent)
               (if @consequent @antecedent)))
-

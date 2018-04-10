@@ -1,6 +1,10 @@
 ;; ECIpedia: Modality
 ;; Jerry Hobbs, Andrew Gordon, and Jonathan Gordon
 
+
+(in-package :eci)
+
+
 ;;
 ;; Abstractions
 ;;
