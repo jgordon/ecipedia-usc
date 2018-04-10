@@ -36,34 +36,34 @@
   entity whose components are body parts. In fact, it's a spatial system,
   since all the body parts are physical objects."
   :properties (:usc body)
-  :args ((arg::b :isa physical-object)
-         (arg::p :isa person)))
+  :args ((@b :isa physical-object)
+         (@p :isa person)))
 
 (def-eci mind (predicate)
   :comment
   "`m` is `p`'s mind. The mind is a composite entity."
   :properties (:usc mind)
-  :args ((arg::m :isa composite-entity)
-         (arg::p :isa person)))
+  :args ((@m :isa composite-entity)
+         (@p :isa person)))
 
 (def-eci body-part (predicate)
   :comment
   "`x` is one of `p`'s body parts."
   :properties (:usc bodyPart)
-  :args ((arg::x :isa entity)
-         (arg::p :isa person)))
+  :args ((@x :isa entity)
+         (@p :isa person)))
 
 (def-eci body-parts-of (predicate)
   :comment
   "A person `p` has a set `s` of body parts, namely, the components of the
   body."
   :properties (:usc bodyPartsOf)
-  :args ((arg::s :isa set)
-         (arg::p :isa person)))
+  :args ((@s :isa set)
+         (@p :isa person)))
 
 (def-eci sense-organ (body-part)
   :comment
   "`o` is one of `p`'s sense organs."
   :properties (:usc senseOrgan)
-  :args ((arg::o :isa entity)
-         (arg::p :isa person)))
+  :args ((@o :isa entity)
+         (@p :isa person)))

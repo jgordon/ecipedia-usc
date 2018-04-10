@@ -20,10 +20,10 @@
   of its time span."
   :properties (:usc eventuality)
   ;; TODO: Does this make 'happensIn' a mandatory argument? It shouldn't be.
-  :args ((arg::p :isa predicate)
-         (arg::arity :isa non-negative-integer)
-         (arg::args :isa set)
-         (arg::happensIn :isa temporal-interval)))
+  :args ((@p :isa predicate)
+         (@arity :isa non-negative-integer)
+         (@args :isa set)
+         (@happensIn :isa temporal-interval)))
 
 (def-eci real-eventuality (eventuality)
   :comment
@@ -48,42 +48,42 @@
   descriptions. The 'gen' relation is anti-reflexive. e1 and e2 occupy
   the same chunk of space-time."
   :properties (:usc gen)
-  :args ((arg::e1 :isa eventuality)
-         (arg::e2 :isa eventuality)))
+  :args ((@e1 :isa eventuality)
+         (@e2 :isa eventuality)))
 
 (def-eci argn (predicate)
   :comment
   "x is the nth argument of e. Every eventuality is its own 0th argument."
   :properties (:usc argn)
-  :args ((arg::x :isa abstraction)
-         (arg::n :isa non-negative-integer)
-         (arg::e :isa eventuality)))
+  :args ((@x :isa abstraction)
+         (@n :isa non-negative-integer)
+         (@e :isa eventuality)))
 
 (def-eci arg (predicate)
   :comment
   "x is an argument of e."
   :properties (:usc arg)
-  :args ((arg::x :isa abstraction)
-         (arg::e :isa eventuality)))
+  :args ((@x :isa abstraction)
+         (@e :isa eventuality)))
 
 (def-eci arg* (predicate)
   :comment
   "An 'arg*' is something that is an argument of the eventuality or the
   argument of an argument of the eventuality or so on recursively."
   :properties (:usc arg*)
-  :args ((arg::x :isa abstraction)
-         (arg::e :isa eventuality)))
+  :args ((@x :isa abstraction)
+         (@e :isa eventuality)))
 
 (def-eci pred (predicate)
   :comment
   "p is the predicate of eventuality e."
   :properties (:usc pred)
-  :args ((arg::p :isa predicate)
-         (arg::e :isa eventuality)))
+  :args ((@p :isa predicate)
+         (@e :isa eventuality)))
 
 (def-eci arity (predicate)
   :comment
   "n is the arity or the number of arguments of e."
   :properties (:usc arity)
-  :args ((arg::n :isa non-negative-integer)
-         (arg::e :isa eventuality)))
+  :args ((@n :isa non-negative-integer)
+         (@e :isa eventuality)))

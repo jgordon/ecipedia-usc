@@ -141,22 +141,22 @@
   of an time point is itself."
   :properties (:usc begins
                :owl time:hasBeginning)
-  :args ((arg::t1 :isa time-point)
-         (arg::t2 :isa temporal-abstraction))
+  :args ((@t1 :isa time-point)
+         (@t2 :isa temporal-abstraction))
   ;; Old draft definition:
-  ;;   :const ((if (time-point arg::t2)
-  ;;               (equal arg::t1 arg::t2))
-  ;;           (if (temporal-sequence arg::t2)
+  ;;   :const ((if (time-point @t2)
+  ;;               (equal @t1 @t2))
+  ;;           (if (temporal-sequence @t2)
   ;;               (exists ((?t temporal-entity))
-  ;;                 (first ?t arg::t2)
-  ;;                 (begins arg::t1 ?t)))
-  ;;           (iff (eventuality arg::t2)
+  ;;                 (first ?t @t2)
+  ;;                 (begins @t1 ?t)))
+  ;;           (iff (eventuality @t2)
   ;;                (exists ((?t temporal-abstraction))
-  ;;                  (and (time-span-of ?t arg::t2)
-  ;;                       (begins arg::t1 ?t))))
+  ;;                  (and (time-span-of ?t @t2)
+  ;;                       (begins @t1 ?t))))
   ;;           (all ((?t positive-infinite-interval))
-  ;;                (if (inside-time ?t arg::t2)
-  ;;                    (before arg::t1 ?t))))
+  ;;                (if (inside-time ?t @t2)
+  ;;                    (before @t1 ?t))))
   )
 
 (def-eci ends (nontemporal-relation)
@@ -165,19 +165,19 @@
   point is itself."
   :properties (:usc ends
                :owl time:hasEnd)
-  :args ((arg::t1 :isa time-point)
-         (arg::t2 :isa temporal-abstraction))
+  :args ((@t1 :isa time-point)
+         (@t2 :isa temporal-abstraction))
   ;; Old draft definition:
-  ;;   :const ((if (time-point arg::t2)
-  ;;               (equal arg::t1 arg::t2))
-  ;;           (if (temporal-sequence arg::t2)
+  ;;   :const ((if (time-point @t2)
+  ;;               (equal @t1 @t2))
+  ;;           (if (temporal-sequence @t2)
   ;;               (exists (?t)
-  ;;                 (last ?t arg::t2)
-  ;;                 (ends arg::t1 ?t)))
-  ;;           (if (eventuality arg::t2)
+  ;;                 (last ?t @t2)
+  ;;                 (ends @t1 ?t)))
+  ;;           (if (eventuality @t2)
   ;;               (exists (?t)
-  ;;                 (time-span-of ?t arg::t2)
-  ;;                 (ends arg::t1 ?t))))
+  ;;                 (time-span-of ?t @t2)
+  ;;                 (ends @t1 ?t))))
   )
 
 
@@ -186,22 +186,22 @@
   "Time point t1 is inside temporal abstraction t2."
   :properties (:usc insideTime
                :owl time:inside)
-  :args ((arg::t1 :isa time-point)
-         (arg::t2 :isa temporal-abstraction))
+  :args ((@t1 :isa time-point)
+         (@t2 :isa temporal-abstraction))
   ;; Old draft definition:
-  ;;   :const ((if (temporal-sequence arg::t2)
-  ;;               (and (not (begins arg::t1 arg::t2))
-  ;;                    (not (ends arg::t1 arg::t2)))
+  ;;   :const ((if (temporal-sequence @t2)
+  ;;               (and (not (begins @t1 @t2))
+  ;;                    (not (ends @t1 @t2)))
   ;;               (exists ((?t temporal-abstraction))
-  ;;                 (member ?t arg::t2)
-  ;;                 (or (equal ?t arg::t1)
-  ;;                     (inside-time arg::t1 ?t)
-  ;;                     (begins arg::t1 ?t)
-  ;;                     (ends arg::t1 ?t))))
-  ;;           (if (eventuality arg::t2)
+  ;;                 (member ?t @t2)
+  ;;                 (or (equal ?t @t1)
+  ;;                     (inside-time @t1 ?t)
+  ;;                     (begins @t1 ?t)
+  ;;                     (ends @t1 ?t))))
+  ;;           (if (eventuality @t2)
   ;;               (exists ((?t temporal-abstraction))
-  ;;                 (time-span-of ?t arg::t2)
-  ;;                 (inside-time arg::t1 ?t))))
+  ;;                 (time-span-of ?t @t2)
+  ;;                 (inside-time @t1 ?t))))
   )
 
 (def-eci temporal-region-between (nontemporal-relation)
@@ -209,16 +209,16 @@
   "t is the temporal region that begins at temporal entity t1 and ends at
   temporal entity t2."
   :properties (:usc intervalBetween)
-  :args ((arg::t :isa temporal-region)
-         (arg::t1 :isa temporal-entity)
-         (arg::t2 :isa temporal-entity))
+  :args ((@t :isa temporal-region)
+         (@t1 :isa temporal-entity)
+         (@t2 :isa temporal-entity))
   ;; Old draft definition:
   ;;   :const ((exists ((?t3 time-point)
   ;;                    (?t4 time-point))
-  ;;             (ends ?t3 arg::t1)
-  ;;             (begins ?t4 arg::t2)
-  ;;             (begins ?t3 arg::t)
-  ;;             (ends ?t4 arg::t)))
+  ;;             (ends ?t3 @t1)
+  ;;             (begins ?t4 @t2)
+  ;;             (begins ?t3 @t)
+  ;;             (ends ?t4 @t)))
   )
 
 (def-eci first (nontemporal-relation)
@@ -226,13 +226,13 @@
   "If element t of the temporal sequence s is before all other
   elements of s, this is called the first element."
   :properties (:usc first)
-  :args ((arg::t :isa temporal-entity)
-         (arg::s :isa temporal-sequence))
+  :args ((@t :isa temporal-entity)
+         (@s :isa temporal-sequence))
   ;; Old draft definition:
-  ;;   :const ((member arg::t arg::s)
+  ;;   :const ((member @t @s)
   ;;           (all ((?t1 temporal-entity))
-  ;;                (if (member ?t1 arg::s)
-  ;;                    (or (equal ?t1 arg::t) (before arg::t ?t1)))))
+  ;;                (if (member ?t1 @s)
+  ;;                    (or (equal ?t1 @t) (before @t ?t1)))))
   )
 
 (def-eci last (nontemporal-relation)
@@ -240,13 +240,13 @@
   "If element t of the temporal sequence s is after all other
   elements of s, this is called the last element."
   :properties (:usc last)
-  :args ((arg::t :isa temporal-entity)
-         (arg::s :isa temporal-sequence))
+  :args ((@t :isa temporal-entity)
+         (@s :isa temporal-sequence))
   ;; Old draft definition:
-  ;; :const ((member arg::t arg::s)
+  ;; :const ((member @t @s)
   ;;         (all ((?t1 temporal-entity))
-  ;;              (if (member ?t1 arg::s)
-  ;;                  (or (equal ?t1 arg::t) (before ?t1 arg::t)))))
+  ;;              (if (member ?t1 @s)
+  ;;                  (or (equal ?t1 @t) (before ?t1 @t)))))
   )
 
 (def-eci successive-elements (nontemporal-relation)
@@ -254,17 +254,17 @@
   "Two elements of a temporal sequence are successive elements if
   there is no element between them."
   :properties (:usc successiveElts)
-  :args ((arg::t1 :isa temporal-entity)
-         (arg::t2 :isa temporal-entity)
-         (arg::s :isa temporal-sequence))
+  :args ((@t1 :isa temporal-entity)
+         (@t2 :isa temporal-entity)
+         (@s :isa temporal-sequence))
   ;; Old draft definition:
-  ;; :const ((member arg::t1 arg::s)
-  ;;         (member arg::t2 arg::s)
-  ;;         (before arg::t1 arg::t2)
+  ;; :const ((member @t1 @s)
+  ;;         (member @t2 @s)
+  ;;         (before @t1 @t2)
   ;;         (not (exists ((?t temporal-entity))
-  ;;                (member ?t arg::s)
-  ;;                (before arg::t1 ?t)
-  ;;                (before ?t arg::t2))))
+  ;;                (member ?t @s)
+  ;;                (before @t1 ?t)
+  ;;                (before ?t @t2))))
   )
 
 (def-eci convex-hull (nontemporal-relation)
@@ -272,18 +272,18 @@
   "The convex hull of a temporal sequence is the smallest temporal region
   spanning all the members of the temporal sequence."
   :properties (:usc convexHull)
-  :args ((arg::t :isa temporal-region)
-         (arg::s :isa temporal-sequence))
+  :args ((@t :isa temporal-region)
+         (@s :isa temporal-sequence))
   ;; Old draft definition:
   ;; :const ((all ((?t1 temporal-entity)
   ;;               (?t2 temporal-entity)
   ;;               (?t3 temporal-entity)
   ;;               (?t4 temporal-entity))
-  ;;              (first ?t1 arg::s)
+  ;;              (first ?t1 @s)
   ;;              (begins ?t3 ?t1)
-  ;;              (last ?t2 arg::s)
+  ;;              (last ?t2 @s)
   ;;              (ends ?t4 ?t2)
-  ;;              (interval-between arg::t ?t3 ?t4)))
+  ;;              (interval-between @t ?t3 ?t4)))
   )
 
 (def-eci temporal-relation (relation)
@@ -297,20 +297,20 @@
   "Eventuality e is occurring (i.e., really exists or obtains) at time
   point t."
   :properties (:usc atTime)
-  :args ((arg::e :isa eventuality)
-         (arg::t :isa time-point)))
+  :args ((@e :isa eventuality)
+         (@t :isa time-point)))
 
 (def-eci during (temporal-relation)
   :comment
   "Eventuality e is occurring (i.e., really exists or obtains) at every
    time point inside temporal region t."
   :properties (:usc during)
-  :args ((arg::e :isa eventuality)
-         (arg::t :isa proper-temporal-region))
+  :args ((@e :isa eventuality)
+         (@t :isa proper-temporal-region))
   ;; Old draft definition:
   ;;   :const ((all ((?t1 temporal-entity))
-  ;;                (if (inside-time ?t1 arg::t)
-  ;;                    (at-time arg::e ?t1))))
+  ;;                (if (inside-time ?t1 @t)
+  ;;                    (at-time @e ?t1))))
   )
 
 (def-eci time-span-of (temporal-relation)
@@ -319,29 +319,29 @@
   temporal regions for which it really exists or obtains. The time span
   may be an instant, a temporal region, or a temporal sequence."
   :properties (:usc timeSpanOf)
-  :args ((arg::t :isa time)
-         (arg::e :isa eventuality))
+  :args ((@t :isa time)
+         (@e :isa eventuality))
   ;; Old draft definition:
   ;;   :const
-  ;;   (or (and (instant arg::t) (at-time arg::e arg::t)
+  ;;   (or (and (instant @t) (at-time @e @t)
   ;;            (all ((?t1 temporal-abstraction))
-  ;;                 (if (nequal ?t1 arg::t)
-  ;;                     (not (at-time arg::e ?t1)))))
-  ;;       (and (interval arg::t) (during arg::e arg::t)
+  ;;                 (if (nequal ?t1 @t)
+  ;;                     (not (at-time @e ?t1)))))
+  ;;       (and (interval @t) (during @e @t)
   ;;            (all ((?t1 temporal-abstraction))
-  ;;                 (if (at-time arg::e ?t1)
-  ;;                     (or (inside-time ?t1 arg::t) (begins ?t1 arg::t)
-  ;;                         (ends ?t1 arg::t)))))
-  ;;       (and (temporal-sequence arg::t)
+  ;;                 (if (at-time @e ?t1)
+  ;;                     (or (inside-time ?t1 @t) (begins ?t1 @t)
+  ;;                         (ends ?t1 @t)))))
+  ;;       (and (temporal-sequence @t)
   ;;            (all ((?t1 temporal-abstraction))
-  ;;                 (if (and (member ?t1 arg::t) (instant ?t1))
-  ;;                     (at-time arg::e ?t1))
-  ;;                 (if (and (member ?t1 arg::t) (interval ?t1))
-  ;;                     (during arg::e ?t1))
-  ;;                 (if (and (instant ?t1) (at-time arg::e ?t1))
-  ;;                     (or (member ?t1 arg::t)
+  ;;                 (if (and (member ?t1 @t) (instant ?t1))
+  ;;                     (at-time @e ?t1))
+  ;;                 (if (and (member ?t1 @t) (interval ?t1))
+  ;;                     (during @e ?t1))
+  ;;                 (if (and (instant ?t1) (at-time @e ?t1))
+  ;;                     (or (member ?t1 @t)
   ;;                         (exists ((?t2 temporal-abstraction))
-  ;;                           (and (interval ?t2) (member ?t2 arg::t)
+  ;;                           (and (interval ?t2) (member ?t2 @t)
   ;;                                (or (begins ?t1 ?t2)
   ;;                                    (inside-time ?t1 ?t2)
   ;;                                    (ends ?t1 ?t2)))))))))
@@ -353,17 +353,17 @@
   sequence t if its time span is entirely included in the temporal entity
   or sequence."
   :properties (:usc happensIn)
-  :args ((arg::e :isa eventuality)
-         (arg::t :isa time))
+  :args ((@e :isa eventuality)
+         (@t :isa time))
   ;; Old draft definition:
   ;;   :const
   ;;   (exists ((?t1 temporal-abstraction))
-  ;;     (and (time-span-of ?t1 arg::e)
+  ;;     (and (time-span-of ?t1 @e)
   ;;          (all ((?t2 temporal-abstraction))
   ;;               (if (or (begins ?t2 ?t1) (inside-time ?t2 ?t1)
   ;;                       (ends ?t2 ?t1))
-  ;;                   (or (begins ?t2 arg::t) (inside-time ?t2 arg::t)
-  ;;                       (ends ?t2 arg::t))))))
+  ;;                   (or (begins ?t2 @t) (inside-time ?t2 @t)
+  ;;                       (ends ?t2 @t))))))
   )
 
 (def-eci before (temporal-relation)
@@ -373,30 +373,30 @@
   antisymmetric, and transitive."
   :properties (:usc before
                :owl time:before)
-  :args (;(arg::e :isa eventuality)
-         (arg::t1 :isa temporal-abstraction)
-         (arg::t2 :isa temporal-abstraction))
+  :args (;(@e :isa eventuality)
+         (@t1 :isa temporal-abstraction)
+         (@t2 :isa temporal-abstraction))
   ;; Old draft definition:
   ;;   :const ((exists ((?s temporal-sequence))
-  ;;             (partial-ordering arg::e arg::t1 arg::t2 ?s)
-  ;;             (scale-defined-by ?s ?s arg::e))
-  ;;           (not (equal arg::t1 arg::t2))
+  ;;             (partial-ordering @e @t1 @t2 ?s)
+  ;;             (scale-defined-by ?s ?s @e))
+  ;;           (not (equal @t1 @t2))
   ;;           (all ((?e1 eventuality))
-  ;;                (not (before ?e1 arg::t2 arg::t1)))
+  ;;                (not (before ?e1 @t2 @t1)))
   ;;           (all ((?e3 eventuality)
   ;;                 (?t3 temporal-abstraction))
-  ;;                (if (before ?e3 arg::t2 ?t3)
+  ;;                (if (before ?e3 @t2 ?t3)
   ;;                    (exists ((?e4 eventuality))
-  ;;                      (before ?e4 arg::t1 ?t3)))))
+  ;;                      (before ?e4 @t1 ?t3)))))
   )
 
 (def-eci duration-of (temporal-relation)
   :comment
   "The duration of t is d units u."
   :properties (:usc durationOf)
-  :args ((arg::d :isa non-negative-integer)
-         (arg::t :isa temporal-abstraction)
-         (arg::u :isa time-unit)))
+  :args ((@d :isa non-negative-integer)
+         (@t :isa temporal-abstraction)
+         (@u :isa time-unit)))
 
 (def-eci nontemporal-relation (relation)
   :comment
@@ -408,38 +408,38 @@
   "Temporal region t1 meets temporal region t2. The end of one temporal
   region is the beginning of the other."
   :properties (:usc intMeets)
-  :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
-         (arg::t2 :isa proper-temporal-region-or-eventuality)))
+  :args ((@t1 :isa proper-temporal-region-or-eventuality)
+         (@t2 :isa proper-temporal-region-or-eventuality)))
 
 (def-eci temporal-regions-overlap (nontemporal-relation)
   :comment
   "Temporal regions t1 and t2 overlap. The beginning of one temporal region
   is inside the other."
   :properties (:usc intOverlaps)
-  :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
-         (arg::t2 :isa proper-temporal-region-or-eventuality)))
+  :args ((@t1 :isa proper-temporal-region-or-eventuality)
+         (@t2 :isa proper-temporal-region-or-eventuality)))
 
 (def-eci temporal-region-finishes-temporal-region (nontemporal-relation)
   :comment
   "Temporal region t1 begins inside temporal region t2, and their ends are
   the same."
   :properties (:usc intFinishes)
-  :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
-         (arg::t2 :isa proper-temporal-region-or-eventuality)))
+  :args ((@t1 :isa proper-temporal-region-or-eventuality)
+         (@t2 :isa proper-temporal-region-or-eventuality)))
 
 (def-eci temporal-region-during-temporal-region (nontemporal-relation)
   :comment
   "Temporal region t1 begins after and ends before temporal region t2."
   :properties (:usc intDuring)
-  :args ((arg::t1 :isa proper-temporal-region-or-eventuality)
-         (arg::t2 :isa proper-temporal-region-or-eventuality)))
+  :args ((@t1 :isa proper-temporal-region-or-eventuality)
+         (@t2 :isa proper-temporal-region-or-eventuality)))
 
 (def-eci before-or-meets (nontemporal-relation)
   :comment
   "The end of t1 is before or equal to the beginning of t2."
   :properties (:usc beforeOrMeets)
-  :args ((arg::t1 :isa temporal-entity)
-         (arg::t2 :isa temporal-entity)))
+  :args ((@t1 :isa temporal-entity)
+         (@t2 :isa temporal-entity)))
 
 (def-eci same-duration (nontemporal-relation)
   :comment
@@ -448,33 +448,33 @@
   duration, namely, zero. This relation is reflexive, symmetric, and
   transitive."
   :properties (:usc sameDuration)
-  :args ((arg::t1 :isa temporal-entity)
-         (arg::t2 :isa temporal-entity)))
+  :args ((@t1 :isa temporal-entity)
+         (@t2 :isa temporal-entity)))
 
 (def-eci concatenation-of-temporal-regions (nontemporal-relation)
   :comment
   "Temporal region t is the concatenation of the temporal regions in the
   set s."
   :properties (:usc concatenation)
-  :args ((arg::t :isa temporal-region)
-         (arg::s :isa set)))
+  :args ((@t :isa temporal-region)
+         (@s :isa set)))
 
 (def-eci shorter-duration (nontemporal-relation)
   :comment
   "Temporal region t1 has shorter duration than temporal region t2. This
   relation is a partial ordering."
   :properties (:usc shorterDuration)
-  :args ((arg::t1 :isa temporal-region)
-         (arg::t2 :isa temporal-region)))
+  :args ((@t1 :isa temporal-region)
+         (@t2 :isa temporal-region)))
 
 (def-eci gap-duration (nontemporal-relation)
   :comment
   "d is the duration of the equal gaps in periodic temporal sequence s
   measured in units u."
   :properties (:usc gapDuration)
-  :args ((arg::d :isa non-negative-integer)
-         (arg::s :isa periodic-temporal-sequence)
-         (arg::u :isa time-unit)))
+  :args ((@d :isa non-negative-integer)
+         (@s :isa periodic-temporal-sequence)
+         (@u :isa time-unit)))
 
 (def-eci rate (nontemporal-relation)
   :comment
@@ -482,15 +482,15 @@
   temporal regions, or in every temporal region of duration t if t is a
   temporal unit."
   :properties (:usc rate)
-  :args ((arg::n :isa number)
-         (arg::s :isa set)
+  :args ((@n :isa number)
+         (@s :isa set)
          ;; t is a set or temporal unit.
-         (arg::t)))
+         (@t)))
 
 (def-eci rate-scale (nontemporal-relation)
   :comment
   "s is a scale whose elements are the sets of eventualities in s0 and whose
   ordering is the rate of the sets."
   :properties (:usc rateScale)
-  :args ((arg::s :isa scale)
-         (arg::s0)))
+  :args ((@s :isa scale)
+         (@s0)))

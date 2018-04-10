@@ -35,93 +35,93 @@
   :comment
   "`n1` is the (unique) successor of `n`; `n1 = n+1`."
   :properties (:usc successor)
-  :args ((arg::n1 :isa non-negative-integer)
-         (arg::n :isa non-negative-integer)))
+  :args ((@n1 :isa non-negative-integer)
+         (@n :isa non-negative-integer)))
 
 (def-eci sum (predicate)
   :comment
   "`n1` is the sum of `n2` and `n3`; `n1 = n2+n3`."
   :properties (:usc sum)
-  :args ((arg::n1 :isa number)
-         (arg::n2 :isa number)
-         (arg::n3 :isa number)))
+  :args ((@n1 :isa number)
+         (@n2 :isa number)
+         (@n3 :isa number)))
 
 (def-eci product (predicate)
   :comment
   "`n1` is the product of `n2` and `n3`; `n1 = n2*n3`."
   :properties (:usc product)
-  :args ((arg::n1 :isa number)
-         (arg::n2 :isa number)
-         (arg::n3 :isa number)))
+  :args ((@n1 :isa number)
+         (@n2 :isa number)
+         (@n3 :isa number)))
 
 (def-eci less-than-or-equal-to (predicate)
   :comment
   "`n1` is less than or equal to `n2`."
   :properties (:usc leq)
-  :args ((arg::n1 :isa number)
-         (arg::n2 :isa number)))
+  :args ((@n1 :isa number)
+         (@n2 :isa number)))
 
 (def-eci less-than (less-than-or-equal-to)
   :comment
   "`n1` is less than `n2`; `n1 < n2`."
   :properties (:usc lt)
-  :args ((arg::n1 :isa number)
-         (arg::n2 :isa number)))
+  :args ((@n1 :isa number)
+         (@n2 :isa number)))
 
 (def-eci greater-than-or-equal-to (predicate)
   :comment
   "`n1` is greater than or equal to `n2`."
   :properties (:usc geq)
-  :args ((arg::n1 :isa number)
-         (arg::n2 :isa number)))
+  :args ((@n1 :isa number)
+         (@n2 :isa number)))
 
 (def-eci greater-than (greater-than-or-equal-to)
   :comment
   "`n1` is reater than `n2`; `n1 > n2`."
   :properties (:usc gt)
-  :args ((arg::n1 :isa number)
-         (arg::n2 :isa number)))
+  :args ((@n1 :isa number)
+         (@n2 :isa number)))
 
 (def-eci fraction (predicate)
   :comment
   "`f` is the fraction whose number is `a` and whose denominator is `b`;
   `f = a/b`."
   :properties (:usc fraction)
-  :args ((arg::f :isa number)
-         (arg::a :isa non-negative-integer)
-         (arg::b :isa positive-integer)))
+  :args ((@f :isa number)
+         (@a :isa non-negative-integer)
+         (@b :isa positive-integer)))
 
 (def-eci measure (predicate)
   :comment
   "`m` is a monotone increasing mapping from a scale `s` into a non-negative
   numeric scale, mapping the bottom of `s` into 0."
   :properties (:usc measure)
-  :args ((arg::m)
-         (arg::s :isa scale)))
+  :args ((@m)
+         (@s :isa scale)))
 
 (def-eci proportion (predicate)
   :comment
   "`f` is the proportion or ratio of `m(x)` to `m(y)`, where `m` is a measure
   on the scale containing `x` and `y`."
   :properties (:usc proportion)
-  :args ((arg::f)
-         (arg::x)
-         (arg::y)
-         (arg::m)))
+  :args ((@f)
+         (@x)
+         (@y)
+         (@m)))
 
 (def-eci identity-function (predicate)
   :comment
   "`f` is the function that maps every element of `s` into itself."
   :properties (:usc identityFunction)
-  :args ((arg::f)
-         (arg::s)))
+  :args ((@f)
+         (@s)))
 
 (def-eci same-half-order-of-magnitude (predicate)
   :comment
   "Two elements `x` and `y` of a scale `s1` are of the same half order of
   magnitude under measure `m`."
   :properties (:usc sameHOM)
-  :args ((arg::x)
-         (arg::y)
-         (arg::s1)
-         (arg::m)))
+  :args ((@x)
+         (@y)
+         (@s1)
+         (@m)))

@@ -6,10 +6,10 @@
   "Logical implication. If the antecedent is true, the consequent
   is true."
   :properties (:usc if)
-  :args ((arg::antecedent :isa formula)
-         (arg::consequent :isa formula))
-  :const ((or (not arg::antecedent)
-              arg::consequent)))
+  :args ((@antecedent :isa formula)
+         (@consequent :isa formula))
+  :const ((or (not @antecedent)
+              @consequent)))
 
 
 (def-eci iff (predicate)
@@ -17,8 +17,8 @@
   "Bidirectional logical implication. The consequent is true if and only
   if the antecedent is true."
   :properties (:usc iff)
-  :args ((arg::antecedent :isa formula)
-         (arg::consequent :isa formula))
-  :const (and (if arg::antecedent arg::consequent)
-              (if arg::consequent arg::antecedent)))
+  :args ((@antecedent :isa formula)
+         (@consequent :isa formula))
+  :const (and (if @antecedent @consequent)
+              (if @consequent @antecedent)))
 

@@ -29,8 +29,8 @@
   modality.) The principal property of positive modalities is that Modus
   Ponens can be applied within the modality."
   :properties (:usc PosMod)
-  :args ((arg::e :isa eventuality)
-         (arg::p :isa predicate)))
+  :args ((@e :isa eventuality)
+         (@p :isa predicate)))
 
 (def-eci possible (predicate)
   :comment
@@ -39,8 +39,8 @@
   Possibility is a positive modality. If an eventuality is `possible`, its
   negation is not `necessary`."
   :properties (:usc possible)
-  :args ((arg::e :isa eventuality)
-         (arg::c :isa eventualities)))
+  :args ((@e :isa eventuality)
+         (@c :isa eventualities)))
 
 (def-eci necessary (predicate)
   :comment
@@ -48,16 +48,16 @@
   if the set of constraints implies it. Necessity is a positive modality
   because of the transitivity of `imply`."
   :properties (:usc necessary)
-  :args ((arg::e :isa eventuality)
-         (arg::c :isa eventualities)))
+  :args ((@e :isa eventuality)
+         (@c :isa eventualities)))
 
 (def-eci impossible (predicate)
   :comment
   "An eventuality `e` is impossible with respect to a set of constraints `c`
   if it is not possible."
   :properties (:usc impossible)
-  :args ((arg::e :isa eventuality)
-         (arg::c :isa eventualities)))
+  :args ((@e :isa eventuality)
+         (@c :isa eventualities)))
 
 (def-eci likelihood (predicate)
   :comment
@@ -66,38 +66,38 @@
   sense defines the sample space. Making the constraints an argument allows
   us to relate likelihood to possibility and to entailment."
   :properties (:usc likelihood)
-  :args ((arg::d)
-         (arg::e :isa eventuality)
-         (arg::c :isa eventualities)))
+  :args ((@d)
+         (@e :isa eventuality)
+         (@c :isa eventualities)))
 
 (def-eci lower-likelihood (predicate)
   :comment
   "`d1` is a lower likelihood than `d2`."
   :properties (:usc lowerLikelihood)
-  :args ((arg::d1)
-         (arg::d2)))
+  :args ((@d1)
+         (@d2)))
 
 (def-eci also-required (predicate)
   :comment
   "`s` is a set of eventualities which, when added to constraints `c`,
   entails `e`."
   :properties (:usc alsoRequired)
-  :args ((arg::s :isa eventualities)
-         (arg::e :isa eventuality)
-         (arg::c :is eventualities)))
+  :args ((@s :isa eventualities)
+         (@e :isa eventuality)
+         (@c :is eventualities)))
 
 (def-eci more-likely (predicate)
   :comment
   "`e1` is more likely than `e2` given constraints `c`."
   :properties (:usc moreLikely)
-  :args ((arg::e1 :isa eventuality)
-         (arg::e2 :isa eventuality)
-         (arg::c :isa eventualities)))
+  :args ((@e1 :isa eventuality)
+         (@e2 :isa eventuality)
+         (@c :isa eventualities)))
 
 (def-eci likely (predicate)
   :comment
   "`e` is likely, given constraints `c`. If an eventuality is likely, its
   negation is not."
   :properties (:usc likely)
-  :args ((arg::e :isa eventuality)
-         (arg::c :isa eventualities)))
+  :args ((@e :isa eventuality)
+         (@c :isa eventualities)))

@@ -37,24 +37,24 @@
   :comment
   "`x` is a point on scale `s` or at a point on `s`."
   :properties (:usc onScale)
-  :args ((arg::x)
-         (arg::s :isa scale)))
+  :args ((@x)
+         (@s :isa scale)))
 
 (def-eci top (relative-spatial-relation)
   :comment
   "`x` is the highest element in the scale `s`. It is the top of the
   `scale-hi-region`."
   :properties (:usc top)
-  :args ((arg::x :isa entity)
-         (arg::s :isa scale)))
+  :args ((@x :isa entity)
+         (@s :isa scale)))
 
 (def-eci bottom (relative-spatial-relation)
   :comment
   "`x` is the lowest element in the scale `s`. It is the bottom of the
   `scale-lo-region`."
   :properties (:usc bottom)
-  :args ((arg::x :isa entity)
-         (arg::s :isa scale)))
+  :args ((@x :isa entity)
+         (@s :isa scale)))
 
 
 ;;
@@ -66,10 +66,10 @@
   "`e` is a partial ordering on the components of `s`, where `x` is less
   than `y`."
   :properties (:usc partialOrdering)
-  :args ((arg::e :isa eventuality)
-         (arg::x)
-         (arg::y)
-         (arg::s :isa scale)))
+  :args ((@e :isa eventuality)
+         (@x)
+         (@y)
+         (@s :isa scale)))
 
 (def-eci total-ordering (partial-ordering)
   :comment
@@ -78,50 +78,50 @@
   which of any two elements, one is either less than, equal to, or greater
   than the other."
   :properties (:usc totalOrdering)
-  :args ((arg::e :isa eventuality)
-         (arg::x)
-         (arg::y)
-         (arg::s :isa scale)))
+  :args ((@e :isa eventuality)
+         (@x)
+         (@y)
+         (@s :isa scale)))
 
 (def-eci in-scale (predicate)
   :comment
   "`y` is a component of the scale `s`."
   :properties (:usc inScale)
-  :args ((arg::y)
-         (arg::s :isa scale)))
+  :args ((@y)
+         (@s :isa scale)))
 
 (def-eci less-than-or-equal-on-scale (predicate)
   :comment
   "`x` is less than or equal to `y` in the partial ordering for scale `s`."
   :properties (:usc leqs)
-  :args ((arg::x)
-         (arg::y)
-         (arg::s :isa scale)))
+  :args ((@x)
+         (@y)
+         (@s :isa scale)))
 
 (def-eci less-than-on-scale (less-than-or-equal-on-scale)
   :comment
   "`x` is less than `y` in the partial ordering for scale `s`."
   :properties (:usc lts)
-  :args ((arg::x)
-         (arg::y)
-         (arg::s :isa scale)))
+  :args ((@x)
+         (@y)
+         (@s :isa scale)))
 
 (def-eci greater-than-or-equal-on-scale (predicate)
   :comment
   "`x` is greater than or equal to `y` in the partial ordering for scale
   `s`."
   :properties (:usc gts)
-  :args ((arg::x)
-         (arg::y)
-         (arg::s :isa scale)))
+  :args ((@x)
+         (@y)
+         (@s :isa scale)))
 
 (def-eci greater-than-on-scale (greater-than-or-equal-on-scale)
   :comment
   "`x` is greater than `y` in the partial ordering for scale `s`."
   :properties (:usc gts)
-  :args ((arg::x)
-         (arg::y)
-         (arg::s :isa scale)))
+  :args ((@x)
+         (@y)
+         (@s :isa scale)))
 
 (def-eci subscale (predicate)
   :comment
@@ -130,23 +130,23 @@
   ordering relation is the partial ordering of the scale restricted to
   that subset."
   :properties (:usc subscale)
-  :args ((arg::s1 :isa scale)
-         (arg::s :isa scale)))
+  :args ((@s1 :isa scale)
+         (@s :isa scale)))
 
 (def-eci reverse (predicate)
   :comment
   "`s1` is the reverse of scale `s`. The reverse of a scale is one in
   which the partial ordering is reversed."
   :properties (:usc reverse)
-  :args ((arg::s1 :isa scale)
-         (arg::s :isa scale)))
+  :args ((@s1 :isa scale)
+         (@s :isa scale)))
 
 (def-eci disjoint (predicate)
   :comment
   "The component sets of scales `s1` and `s2` are disjoint."
   :properties (:usc disjoint)
-  :args ((arg::s1 :isa scale)
-         (arg::s2 :isa scale)))
+  :args ((@s1 :isa scale)
+         (@s2 :isa scale)))
 
 (def-eci function-onto (predicate)
   :comment
@@ -154,17 +154,17 @@
   For a scale to be the domain or range of a function is for its set of
   components to be the domain or range."
   :properties (:usc function)
-  :args ((arg::f :isa function)
-         (arg::s1 :isa set)
-         (arg::s2 :isa set)))
+  :args ((@f :isa function)
+         (@s1 :isa set)
+         (@s2 :isa set)))
 
 (def-eci function-into (predicate)
   :comment
   "`f` is a function from a set or scale `s1` into a set or scale `s2`."
   :properties (:usc functionInto)
-  :args ((arg::f :isa function)
-         (arg::s1 :isa set)
-         (arg::s2 :isa set)))
+  :args ((@f :isa function)
+         (@s1 :isa set)
+         (@s2 :isa set)))
 
 (def-eci scale-defined-by (predicate)
   :comment
@@ -172,9 +172,9 @@
   is the partial ordering of the scale. `s` is the scale with components
   `s1` and partial ordering defined by relation `e`."
   :properties (:usc scaleDefinedBy)
-  :args ((arg::s :isa scale)
-         (arg::s1 :isa set)
-         (arg::e :isa eventuality)))
+  :args ((@s :isa scale)
+         (@s1 :isa set)
+         (@e :isa eventuality)))
 
 (def-eci subset-consistent (predicate)
   :comment
@@ -182,8 +182,8 @@
   among sets associated by the relation `e` with entities placed at points
   in `s`."
   :properties (:usc subsetConsistent)
-  :args ((arg::s :isa scale)
-         (arg::e)))
+  :args ((@s :isa scale)
+         (@e)))
 
 (def-eci composite-scale (predicate)
   :comment
@@ -191,36 +191,36 @@
   `s2` and a partial ordering consistent with the partial orderings of
   `s1` and `s2`."
   :properties (:usc compositeScale)
-  :args ((arg::s :isa scale)
-         (arg::s1 :isa scale)
-         (arg::s2 :isa scale)))
+  :args ((@s :isa scale)
+         (@s1 :isa scale)
+         (@s2 :isa scale)))
 
 (def-eci scale-hi-region (predicate)
   :comment
   "`s1` is the high region of scale `s`."
   :properties (:usc Hi)
-  :args ((arg::s1)
-         (arg::s :isa scale)))
+  :args ((@s1)
+         (@s :isa scale)))
 
 (def-eci scale-md-region (predicate)
   :comment
   "`s1` is the middle region of scale `s`."
   :properties (:usc Md)
-  :args ((arg::s1)
-         (arg::s :isa scale)))
+  :args ((@s1)
+         (@s :isa scale)))
 
 (def-eci scale-lo-region (predicate)
   :comment
   "`s1` is the low region of scale `s`. If a point is in this region, it is
   less than all the points in the `scale-hi-region`."
   :properties (:usc Lo)
-  :args ((arg::s1)
-         (arg::s :isa scale)))
+  :args ((@s1)
+         (@s :isa scale)))
 
 (def-eci scale-for (predicate)
   :comment
   "The property `e` corresponds to being in the `scale-hi-region` of scale
   `s`."
   :properties (:usc scaleFor)
-  :args ((arg::s :isa scale)
-         (arg::e)))
+  :args ((@s :isa scale)
+         (@e)))
