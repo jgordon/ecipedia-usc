@@ -95,7 +95,8 @@
 
 (def-eci less-than-or-equal-on-scale (predicate)
   :comment
-  "`x` is less than or equal to `y` in the partial ordering for scale `s`."
+  "Component `x` is less than or equal to component `y` in the partial
+  ordering for scale `s`."
   :properties (:usc leqs)
   :args ((@x)
          (@y)
@@ -103,7 +104,8 @@
 
 (def-eci less-than-on-scale (less-than-or-equal-on-scale)
   :comment
-  "`x` is less than `y` in the partial ordering for scale `s`."
+  "Component `x` is less than component `y` in the partial ordering for
+  scale `s`."
   :properties (:usc lts)
   :args ((@x)
          (@y)
@@ -111,8 +113,8 @@
 
 (def-eci greater-than-or-equal-on-scale (predicate)
   :comment
-  "`x` is greater than or equal to `y` in the partial ordering for scale
-  `s`."
+  "Component `x` is greater than or equal to component `y` in the partial
+  ordering for scale `s`."
   :properties (:usc gts)
   :args ((@x)
          (@y)
@@ -190,9 +192,8 @@
 
 (def-eci composite-scale (predicate)
   :comment
-  "`s` is a composite scale with the same components as scales `s1` and
-  `s2` and a partial ordering consistent with the partial orderings of
-  `s1` and `s2`."
+  "Composite scale `s` has the same components as scales `s1` and `s2` and
+  a partial ordering consistent with the partial orderings of `s1` and `s2`."
   :properties (:usc compositeScale)
   :args ((@s :isa scale)
          (@s1 :isa scale)
