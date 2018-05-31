@@ -36,18 +36,19 @@
 ;; Predicates
 ;;
 
-(def-eci distance (predicate)
-  :comment
-  "`d` is the distance in units `u` between `x1` and `x2` in spatial
-  system `s`. The distance between an entity and itself is zero. The
-  distance between two entities is symmetric, and the triangle inequality
-  holds."
-  :properties (:usc distance)
-  :args ((@d :isa non-negative-integer)
-         (@u :isa spatial-unit)
-         (@x1 :isa entity)
-         (@x2 :isa entity)
-         (@s :isa spatial-system)))
+;; Replaced by definition in '17 Making Things 04 Distance.lisp'
+;; (def-eci distance (predicate)
+;;   :comment
+;;   "`d` is the distance in units `u` between `x1` and `x2` in spatial
+;;   system `s`. The distance between an entity and itself is zero. The
+;;   distance between two entities is symmetric, and the triangle inequality
+;;   holds."
+;;   :properties (:usc distance)
+;;   :args ((@d :isa non-negative-integer)
+;;          (@u :isa spatial-unit)
+;;          (@x1 :isa entity)
+;;          (@x2 :isa entity)
+;;          (@s :isa spatial-system)))
 
 (def-eci shorter-distance (predicate)
   :comment

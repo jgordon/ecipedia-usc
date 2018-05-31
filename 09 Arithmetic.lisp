@@ -13,7 +13,12 @@
   :comment "A number."
   :properties (:usc number))
 
-(def-eci non-negative-integer (number)
+(def-eci non-negative-number (number)
+  :comment
+  "A non-negative number."
+  :properties (:usc nonNegNumber))
+
+(def-eci non-negative-integer (non-negative-number)
   :comment
   "A non-negative integer. Zero (a constant) is a non-negative integer, and
   every non-negative integer has a non-negative integer as a `successor`."
