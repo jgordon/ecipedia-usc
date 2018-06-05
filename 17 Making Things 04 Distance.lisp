@@ -14,6 +14,16 @@
   "A rhombus is a quadrilateral whose sides are all equal."
   :properties (:usc rhombus))
 
+;; This is in this file since its definition depends on distance.
+;; This could also be a two-place predicate.
+(def-eci circle (curve)
+  :comment
+  "A circle around a center `x` is a figure in which every line segment
+  from the center to a point inside the circle is constant."
+  :properties (:usc circle)
+  :args (;(@c :isa curve)
+         (@x :isa point)))
+
 (def-eci closed-curve (curve)
   :comment
   "A closed curve has no endpoints and can be covered by a large enough
@@ -66,15 +76,6 @@
   :args ((@d :isa non-negative-number)
          (@c :isa line-segment)
          (@u :isa spatial-unit)))
-
-;; This is in this file since its definition depends on distance.
-(def-eci circle (predicate)
-  :comment
-  "A circle `c` around a center `x` is a figure in which every line segment
-  from the center to a point inside the circle is constant."
-  :properties (:usc circle)
-  :args ((@c :isa curve)
-         (@x :isa point)))
 
 (def-eci nearer (predicate)
   :comment
