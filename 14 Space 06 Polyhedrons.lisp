@@ -1,4 +1,4 @@
-;; ECIpedia: Making Things: Polyhedrons
+;; ECIpedia: Space: Polyhedrons
 ;; Jerry Hobbs and Jonathan Gordon
 
 (in-package :eci)

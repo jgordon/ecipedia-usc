@@ -1,4 +1,4 @@
-;; ECIpedia: Making Things: Angles
+;; ECIpedia: Space: Angles
 ;; Jerry Hobbs and Jonathan Gordon
 
 (in-package :eci)

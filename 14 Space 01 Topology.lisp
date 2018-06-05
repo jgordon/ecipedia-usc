@@ -1,4 +1,4 @@
-;; ECIpedia: Making Things: Topology
+;; ECIpedia: Space: Topology
 ;; Jerry Hobbs and Jonathan Gordon
 
 (in-package :eci)

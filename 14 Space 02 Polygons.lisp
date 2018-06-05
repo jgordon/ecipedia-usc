@@ -1,4 +1,4 @@
-;; ECIpedia: Making Things: Polygons
+;; ECIpedia: Space: Polygons
 ;; Jerry Hobbs and Jonathan Gordon
 
 (in-package :eci)

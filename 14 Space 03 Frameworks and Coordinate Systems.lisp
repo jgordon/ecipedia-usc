@@ -1,4 +1,4 @@
-;; ECIpedia: Making Things: Frameworks and Coordinate Systems
+;; ECIpedia: Space: Frameworks and Coordinate Systems
 ;; Jerry Hobbs and Jonathan Gordon
 
 (in-package :eci)

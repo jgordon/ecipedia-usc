@@ -1,4 +1,4 @@
-;; ECIpedia: Making Things: Distance
+;; ECIpedia: Space: Distance
 ;; Jerry Hobbs and Jonathan Gordon
 
 (in-package :eci)
