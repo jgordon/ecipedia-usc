@@ -8,6 +8,11 @@
 ;; Abstractions
 ;;
 
+(def-eci spatial-unit (unit-type)
+  :comment
+  "A spatial unit."
+  :properties (:usc spatialUnit))
+
 ;; This is in this file since its definition depends on distance.
 (def-eci rhombus (quadrilateral)
   :comment
